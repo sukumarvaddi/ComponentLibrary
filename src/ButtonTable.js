@@ -16,7 +16,7 @@ const ButtonTable = () => {
         <td>Small</td>
         <td>
           <Button size="small" variant="fill">
-            Button
+           Button
           </Button>
         </td>
         <td>
