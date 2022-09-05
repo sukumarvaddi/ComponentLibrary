@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { COLORS, VARIANT } from "./constants";
 
 const SIZES = {
-  small: { width: 93, height: 35 },
-  medium: { width: 117, height: 53 },
-  large: { width: 152, height: 65 }
+  small: { padding: "4px 12px" },
+  medium: { padding: "12px 20px" },
+  large: { padding: "16px 32px" }
 };
 
 const Button = ({ variant, size, children }) => {
@@ -26,17 +26,15 @@ const BaseButton = styled.button`
   text-transform: uppercase;
   font-weight: 500;
   border-radius: 2px;
+   padding: ${(props) => props.size.padding};
 `;
 
 const FillButton = styled(BaseButton)`
   background: ${COLORS.primary};
   color: ${COLORS.white};
-  width: ${(props) => props.size.width}px;
-  height: ${(props) => props.size.height}px;
   &:hover {
     background: ${COLORS.primaryLightened};
   }
-
   &:focus {
     outline: 2px solid ${COLORS.primary};
     outline-offset: 2px;
@@ -47,8 +45,7 @@ const OutLineButton = styled(BaseButton)`
   background: ${COLORS.white};
   color: ${COLORS.primary};
   border: 2px solid currentColor;
-  width: ${(props) => props.size.width + "px"};
-  height: ${(props) => props.size.height + "px"};
+ 
   &:hover {
     background: ${COLORS.offwhite};
   }
@@ -59,18 +56,14 @@ const OutLineButton = styled(BaseButton)`
 `;
 
 const GhostButton = styled(BaseButton)`
-  color: ${COLORS.gray};
   background: transparent;
-  border: none;
-  width: ${(props) => props.size.width + "px"};
-  height: ${(props) => props.size.height + "px"};
+  color: ${COLORS.gray};
   &:hover {
     color: ${COLORS.black};
     background-color: ${COLORS.transparentGray15};
   }
   &:focus {
-    background-color: inherit;
-    border: 2px solid ${COLORS.transparentGray75};
+    outline: 2px solid ${COLORS.transparentGray75};
   }
 `;
 
